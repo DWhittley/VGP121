@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Robot Walk 1
+      name: Robot Idle 1
       rect:
         serializedVersion: 2
         x: 16
@@ -150,7 +150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot Walk 2
+      name: Robot Idle 2
       rect:
         serializedVersion: 2
         x: 79
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot Walk 3
+      name: Robot Idle 3
       rect:
         serializedVersion: 2
         x: 143
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot Walk 4
+      name: Robot Idle 4
       rect:
         serializedVersion: 2
         x: 208
@@ -213,7 +213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot Walk 5
+      name: Robot Idle 5
       rect:
         serializedVersion: 2
         x: 273
@@ -234,7 +234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot Walk 6
+      name: Robot Idle 6
       rect:
         serializedVersion: 2
         x: 337
@@ -359,6 +359,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Robot Walk 1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 14
+        width: 29
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8ee56905aad6b49b2b79f15736a3d5
+      internalID: 339021599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot Walk 2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 14
+        width: 32
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73f5f07318e88241b6bd8ccccaee8df
+      internalID: -292729824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot Walk 3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 14
+        width: 28
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637b2ff3480552c46a9a638888e78acc
+      internalID: 2037075660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot Walk 4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 14
+        width: 29
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2046d8ceebd87741bbbfb4dd0c0a8d5
+      internalID: -691365963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -370,22 +454,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      robotFighter_35: 1997454417
-      robotFighter_36: -287955408
+      Robot Disable 3: 1263707821
       robotFighter_34: -1660895716
       robotFighter_21: -1372387190
-      Robot Walk 3: 69595137
-      robotFighter_19: 52962479
       Robot Disable 2: 119893575
+      robotFighter_19: 52962479
+      Robot Disable 4: -1830392429
       robotFighter_6: 1665145721
       robotFighter_27: -1867414665
       Robot Disable 5: -456972685
       robotFighter_15: -760139487
+      Robot Idle 6: -770787416
       robotFighter_30: 2064033524
-      Robot Disable 4: -1830392429
+      Robot Idle 1: 624650858
+      Robot Idle 2: -590231514
+      Robot Walk 3: 2037075660
       robotFighter_8: 355889819
       robotFighter_25: 1941503660
-      Robot Walk 1: 624650858
+      Robot Idle 4: 1017768946
+      Robot Walk 1: 339021599
       robotFighter_22: -2090717657
       robotFighter_18: -1118795269
       robotFighter_20: 1562843029
@@ -394,19 +481,20 @@ TextureImporter:
       robotFighter_33: 1732514717
       robotFighter_10: 582226389
       robotFighter_31: -589003341
+      Robot Idle 5: 1332846689
       robotFighter_23: 2067864843
       robotFighter_26: -1096112830
       robotFighter_16: 1261574207
-      Robot Walk 6: -770787416
+      Robot Idle 3: 69595137
       robotFighter_7: -1736367717
       Robot Disable 1: 836621361
       robotFighter_29: 1857475751
-      Robot Walk 4: 1017768946
+      Robot Walk 4: -691365963
       robotFighter_17: 1295260693
-      Robot Walk 2: -590231514
+      Robot Walk 2: -292729824
       robotFighter_24: 889833135
-      Robot Walk 5: 1332846689
-      Robot Disable 3: 1263707821
+      robotFighter_36: -287955408
+      robotFighter_35: 1997454417
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
