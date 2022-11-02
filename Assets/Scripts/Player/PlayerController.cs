@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
@@ -18,6 +20,58 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask isGroundLayer;
     public float groundCheckRadius;
+
+
+    // variables
+    Coroutine jumpForceChange;
+    public int maxLives = 3;
+    private int _lives = 3;
+
+    public int lives
+    {
+        get { return _lives; }
+        set
+        {
+            //if (_lives < value)
+            // we lost a life - we should respawn
+
+            _lives = value;
+
+            if (_lives > maxLives)
+                _lives = maxLives;
+
+            //if (_lives <= 0)
+            //gameover code goes here
+
+            Debug.Log("Lives have been set to: " + _lives.ToString());
+        }
+    }
+
+    public void StartJumpForceChange()
+    {
+        if (jumpForceChange == null)
+        {
+            jumpForceChange = StartCoroutine(JumpForceChange());
+        }
+        else
+        {
+            StopCoroutine(jumpForceChange);
+            jumpForceChange = null;
+            jumpForce /= 1.5f;
+            jumpForceChange = StartCoroutine(JumpForceChange());
+
+        }
+    }
+
+    IEnumerator JumpForceChange()
+    {
+        jumpForce *= 1.5f;
+
+        yield return new WaitForSeconds(5.0f);
+
+        jumpForce /= 1.5f;
+        jumpForceChange = null;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +108,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimatorClipInfo[] curPlayingClip = anim.GetCurrentAnimatorClipInfo(0);
         float hInput = Input.GetAxisRaw("Horizontal");
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
+
+        if (curPlayingClip.Length > 0)
+        {
+            if (Input.GetButtonDown("Fire1") && curPlayingClip[0].clip.name != "Fire")
+            {
+                anim.SetTrigger("Fire");
+            }
+            else if (curPlayingClip[0].clip.name == "Fire")
+                rb.velocity = Vector2.zero;
+            else
+            {
+                Vector2 moveDirection = new Vector2(hInput * speed, rb.velocity.y);
+                rb.velocity = moveDirection;
+            }
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -64,13 +134,29 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce);
         }
 
-        Vector2 moveDirection = new Vector2(hInput * speed, rb.velocity.y);
-        rb.velocity = moveDirection;
+        if (!isGrounded && Input.GetButtonDown("Jump"))
+        {
+            anim.SetTrigger("JumpAttack");
+        }
+
+
 
         anim.SetFloat("speed", Mathf.Abs(hInput));
         anim.SetBool("isGrounded", isGrounded);
 
-        //Check for flipped and create some sort of algorithm to keep your sprite flipped properly
+        //Check for flipped
+
+        if (hInput != 0)
+            sr.flipX = (hInput < 0);
+
+        if (isGrounded)
+            rb.gravityScale = 1;
 
     }
+
+    public void IncreaseGravity()
+    {
+        rb.gravityScale = 5;
+    }
+
 }
